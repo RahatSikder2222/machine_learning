@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Customer Churn Prediction</h2>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="CreditScore">Credit Score:</label>
+                <input type="number" step="any" name="CreditScore" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Geography">Geography:</label>
+                <select name="Geography" class="form-control">
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Spain">Spain</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <select name="Gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" name="Age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Tenure">Tenure:</label>
+                <input type="number" name="Tenure" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Balance">Balance:</label>
+                <input type="number" step="any" name="Balance" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="NumOfProducts">Number of Products:</label>
+                <input type="number" name="NumOfProducts" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="HasCrCard">Has Credit Card:</label>
+                <select name="HasCrCard" class="form-control">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="IsActiveMember">Is Active Member:</label>
+                <select name="IsActiveMember" class="form-control">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="EstimatedSalary">Estimated Salary:</label>
+                <input type="number" step="any" name="EstimatedSalary" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <div class="alert alert-info mt-3">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
